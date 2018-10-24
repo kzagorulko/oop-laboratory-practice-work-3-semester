@@ -8,19 +8,28 @@ import java.awt.event.ActionListener;
 public class PraqFour extends JFrame {
     JButton acmilan = new JButton("AC Milan");
     JButton realmadrid = new JButton("Real Madrid");
-    JLabel result = new JLabel("Result: 0x0");
-    JLabel lastScorer = new JLabel("Last Scorer: N/A");
-    Label winner = new Label("Winner: DRAW");
+    JLabel result = new JLabel("Result: 0x0", SwingConstants.CENTER);
+    JLabel lastScorer = new JLabel("Last Scorer: N/A", SwingConstants.CENTER);
+    JLabel winner = new JLabel("Winner: DRAW", SwingConstants.CENTER);
     private int realPoints = 0, milanPoints = 0;
     PraqFour() {
         super("Soccer table");
-        setLayout(new FlowLayout());
-        setSize(300,100);
-        add(acmilan);
-        add(realmadrid);
-        add(result);
-        add(lastScorer);
-        add(winner);
+        //setLayout(new FlowLayout());
+        setBounds(300,300,300,150);
+        JPanel panel = new JPanel();
+        panel.setBounds(300,300,300,300);
+        panel.setLayout(null);
+        setResizable(false);
+        panel.add(acmilan);
+        acmilan.setBounds(0,0,150,30);
+        panel.add(realmadrid);
+        realmadrid.setBounds(150,0,150,30);
+        panel.add(result);
+        result.setBounds(0,30,300,30);
+        panel.add(lastScorer);
+        lastScorer.setBounds(0,60,300,30);
+        panel.add(winner);
+        winner.setBounds(0, 90, 300, 30);
         acmilan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -51,5 +60,6 @@ public class PraqFour extends JFrame {
                 }
             }
         });
+        this.add(panel);
     }
 }

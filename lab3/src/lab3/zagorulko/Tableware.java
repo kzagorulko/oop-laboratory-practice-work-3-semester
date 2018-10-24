@@ -14,8 +14,8 @@ public class Tableware extends Dish{
         this.typ = typ;
     }
 
-    public Tableware(String name, String matrial, TablewareTyp typ) {
-        super(name, matrial);
+    public Tableware(String name, String material, TablewareTyp typ) {
+        super(name, material);
         this.typ = typ;
     }
 
