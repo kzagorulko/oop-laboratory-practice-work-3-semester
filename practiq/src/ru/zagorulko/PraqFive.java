@@ -16,10 +16,35 @@ public class PraqFive {
         return "NO";
     }
 
+    public void showMultipliers(int n, int k) {
+        if (k > n / 2) {
+            System.out.println(n + " ");
+            return;
+        }
+
+        if (n % k == 0) {
+            System.out.print(k + " ");
+            showMultipliers(n / k, k);
+        } else {
+            showMultipliers(n, ++k);
+        }
+    }
+
+    public int showSum(int n) {
+        if (n < 10) {
+            return n;
+        }
+        else {
+            return n % 10 + showSum(n / 10);
+        }
+    }
+
     public static void main(String[] args) {
         PraqFive praq = new PraqFive();
 
-        System.out.println(praq.isPalindrome("KEKEKEKEK"));
+        System.out.println(praq.isPalindrome("ПОТОП"));
+        praq.showMultipliers(12, 2);
+        System.out.println("sum: " + praq.showSum(123));
     }
 }
 

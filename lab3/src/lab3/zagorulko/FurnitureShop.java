@@ -21,40 +21,44 @@ public class FurnitureShop {
         this.getPriseForWardrope = priseForWardrope;
     }
 
-    public int getPriseForTable() {
-        return priseForTable;
+    public void soldTable() {
+        if(tables.length > 0) {
+            tables = new Table[tables.length-1];
+            for(int i = 0; i < tables.length; i++) {
+                tables[i] = new Table("office Desk", 90, 20, 2);
+            }
+            System.out.println("Стол продан! Количество столов - " + tables.length);
+        }else {
+            System.out.println("Столов в наличие нет!");
+        }
     }
 
-    public void setPriseForTable(int priseForTable) {
-        this.priseForTable = priseForTable;
+    public  void soldWardope() {
+        if(wardropes.length > 0) {
+            wardropes = new Wardrope[wardropes.length-1];
+            for(int i = 0; i < wardropes.length; i++) {
+                wardropes[i] = new Wardrope("oOffice Cabinet", 200, 20, 2);
+            }
+            System.out.println("Шкаф продан! Количество шкафов - " + wardropes.length);
+        }else {
+            System.out.println("Шкафов в наличие нет!");
+        }
     }
 
-    public int getGetPriseForWardrope() {
-        return getPriseForWardrope;
+    public void  deliveryTable() {
+        tables = new Table[tables.length+1];
+        for(int i = 0; i < tables.length; i++) {
+            tables[i] = new Table("office Desk", 90, 20, 2);
+        }
+        System.out.println("Стол доставлен. Столов на складе: " + tables.length);
     }
 
-    public void setGetPriseForWardrope(int getPriseForWardrope) {
-        this.getPriseForWardrope = getPriseForWardrope;
+    public void deliveyWardropes() {
+        wardropes = new Wardrope[wardropes.length + 1];
+        for(int i = 0; i < wardropes.length; i++) {
+            wardropes[i] = new Wardrope("office Desk", 200, 20, 2);
+        }
+        System.out.println("Шкаф доставлен. Шкафов на складе: " + wardropes.length);
     }
-
-    public Table[] getTables() {
-        return tables;
-    }
-
-    public void setTables(Table[] tables) {
-        this.tables = tables;
-    }
-
-    public Wardrope[] getWardropes() {
-        return wardropes;
-    }
-
-    public void setWardropes(Wardrope[] wardropes) {
-        this.wardropes = wardropes;
-    }
-
-
-    //= new Table[10];
-    //("office Desk", 90, 20, 2);
 
 }
