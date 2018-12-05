@@ -1,104 +1,46 @@
 package ru.zagorulko.praqSeven;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
-public class Main {
+class main {
     public static void main(String[] args) {
-        Queue<Integer> queue = new Queue<Integer>() {
-            @Override
-            public boolean add(Integer integer) {
-                return false;
+        ArrayDeque<Integer> deque1 = new ArrayDeque<Integer>();
+        ArrayDeque<Integer> deque2 = new ArrayDeque<Integer>();
+
+        Scanner insc = new Scanner(System.in);
+
+        Scanner sc = new Scanner(insc.nextLine());
+
+        for (int i = 0; i < 5; i++) {
+            deque1.addLast(sc.nextInt());
+        }
+
+        sc = new Scanner(insc.nextLine());
+
+        for (int i = 0; i < 5; i++) {
+            deque2.addLast(sc.nextInt());
+        }
+
+        for (int i = 0; i < 106; i++) {
+            if (deque1.isEmpty()) {
+                System.out.printf("Второй " + i);
+                return;
             }
 
-            @Override
-            public boolean offer(Integer integer) {
-                return false;
+            if (deque2.isEmpty()) {
+                System.out.printf("Первый " + i);
+                return;
             }
 
-            @Override
-            public Integer remove() {
-                return null;
-            }
+            int card1 = deque1.pop();
+            int card2 = deque2.pop();
 
-            @Override
-            public Integer poll() {
-                return null;
-            }
+            ArrayDeque<Integer> winner = ((card1 == 0 && card2 == 9) ||
+                    (card1 > card2 && (card1 != 9 || card2 != 0))) ? deque1 : deque2;
 
-            @Override
-            public Integer element() {
-                return null;
-            }
-
-            @Override
-            public Integer peek() {
-                return null;
-            }
-
-            @Override
-            public int size() {
-                return 0;
-            }
-
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
-
-            @Override
-            public boolean contains(Object o) {
-                return false;
-            }
-
-            @Override
-            public Iterator<Integer> iterator() {
-                return null;
-            }
-
-            @Override
-            public Object[] toArray() {
-                return new Object[0];
-            }
-
-            @Override
-            public <T> T[] toArray(T[] ts) {
-                return null;
-            }
-
-            @Override
-            public boolean remove(Object o) {
-                return false;
-            }
-
-            @Override
-            public boolean containsAll(Collection<?> collection) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(Collection<? extends Integer> collection) {
-                return false;
-            }
-
-            @Override
-            public boolean removeAll(Collection<?> collection) {
-                return false;
-            }
-
-            @Override
-            public boolean retainAll(Collection<?> collection) {
-                return false;
-            }
-
-            @Override
-            public void clear() {
-
-            }
-        };
-
+            winner.addLast(card1);
+            winner.addLast(card2);
+        }
+    System.out.println("Ботва");
     }
-
 }
