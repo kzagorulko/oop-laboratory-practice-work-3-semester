@@ -2,6 +2,8 @@ package ru.zagorulko.lab7.third;
 
 import java.util.AbstractList;
 
+// вить некст и хэс
+
 
 public class ArrayList<E> extends AbstractList<E> {
     private Object[] elements;
